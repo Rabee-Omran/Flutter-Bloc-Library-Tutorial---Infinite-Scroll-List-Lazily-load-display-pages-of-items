@@ -1,3 +1,4 @@
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:equatable/equatable.dart';
 import 'package:infinite_list_tutorial/api/posts_api.dart';
@@ -36,6 +37,6 @@ class PostsBloc extends Bloc<PostsEvent, PostsState> {
               status: PostStatus.error, errorMessage: "failed to fetch posts"));
         }
       }
-    });
+    }, transformer: droppable());
   }
 }
